@@ -68,6 +68,37 @@ const AboutSection = () => {
           </p>
         </div>
 
+        {/* Global Summit Images Section */}
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          <div className="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&h=500&fit=crop" 
+              alt="Conférence mondiale sur l'éducation"
+              className="w-full h-80 object-cover rounded-2xl shadow-xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-2xl"></div>
+            <div className="absolute bottom-6 left-6 text-white">
+              <Badge className="bg-gchea-bright-gold text-black mb-2">Global Summit</Badge>
+              <h3 className="text-xl font-bold mb-2">Conférence Mondiale sur l'Excellence Académique</h3>
+              <p className="text-sm opacity-90">Réunissant 50+ pays à Genève</p>
+            </div>
+          </div>
+          
+          <div className="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1460574283810-2aab119d8511?q=80&w=800&h=500&fit=crop" 
+              alt="Siège de l'UNESCO à Genève"
+              className="w-full h-80 object-cover rounded-2xl shadow-xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-2xl"></div>
+            <div className="absolute bottom-6 left-6 text-white">
+              <Badge className="bg-gchea-bright-gold text-black mb-2">UNESCO Partnership</Badge>
+              <h3 className="text-xl font-bold mb-2">Partenariat Officiel UNESCO</h3>
+              <p className="text-sm opacity-90">Reconnaissance internationale officielle</p>
+            </div>
+          </div>
+        </div>
+
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {features.map((feature, index) => (

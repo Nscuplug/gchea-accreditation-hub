@@ -55,9 +55,23 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Floating Elements */}
+          {/* Right Content - Images and Floating Elements */}
           <div className="relative animate-slide-in-right">
             <div className="relative z-10">
+              {/* UNESCO Summit Image */}
+              <div className="relative overflow-hidden rounded-2xl mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=800&h=600&fit=crop" 
+                  alt="Sommet mondial de l'éducation UNESCO"
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <Badge className="bg-gchea-bright-gold text-black mb-2">UNESCO Partnership</Badge>
+                  <p className="text-sm">Sommet Mondial de l'Éducation 2024</p>
+                </div>
+              </div>
+
               {/* Main Card */}
               <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 float-animation">
                 <div className="flex items-center mb-6">

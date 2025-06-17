@@ -112,6 +112,48 @@ const PartnershipsSection = () => {
           </p>
         </div>
 
+        {/* Global Summit Images */}
+        <div className="grid md:grid-cols-3 gap-6 mb-20">
+          <div className="relative group">
+            <img 
+              src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?q=80&w=600&h=400&fit=crop" 
+              alt="Architecture moderne UNESCO"
+              className="w-full h-64 object-cover rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 text-white">
+              <Badge className="bg-gchea-bright-gold text-black mb-2">UNESCO HQ</Badge>
+              <p className="text-sm font-medium">Siège Mondial UNESCO</p>
+            </div>
+          </div>
+          
+          <div className="relative group">
+            <img 
+              src="https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=600&h=400&fit=crop" 
+              alt="Assemblée internationale"
+              className="w-full h-64 object-cover rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 text-white">
+              <Badge className="bg-gchea-bright-gold text-black mb-2">Global Assembly</Badge>
+              <p className="text-sm font-medium">Assemblée Mondiale GCHEA</p>
+            </div>
+          </div>
+          
+          <div className="relative group">
+            <img 
+              src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=600&h=400&fit=crop" 
+              alt="Conférence technologie éducative"
+              className="w-full h-64 object-cover rounded-xl shadow-lg group-hover:shadow-2xl transition-shadow"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl"></div>
+            <div className="absolute bottom-4 left-4 text-white">
+              <Badge className="bg-gchea-bright-gold text-black mb-2">EdTech Summit</Badge>
+              <p className="text-sm font-medium">Innovation Éducative</p>
+            </div>
+          </div>
+        </div>
+
         {/* Global Partners */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold text-gchea-dark-purple text-center mb-12">
