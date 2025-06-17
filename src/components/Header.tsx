@@ -39,39 +39,28 @@ const Header = () => {
                     À Propos
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[600px] lg:w-[800px] lg:grid-cols-3">
+                    <div className="grid gap-3 p-6 w-[500px] lg:w-[600px] lg:grid-cols-2">
                       <div className="space-y-3">
                         <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Organisation</h4>
-                        <NavigationMenuLink href="#mission" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <NavigationMenuLink href="#mission-vision" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                           <div className="text-sm font-medium leading-none">Mission et Vision</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Notre mission mondiale</p>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Notre engagement mondial</p>
                         </NavigationMenuLink>
                         <NavigationMenuLink href="#histoire" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                           <div className="text-sm font-medium leading-none">Histoire et Jalons</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">25 ans d'excellence</p>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#leadership" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Direction et Gouvernance</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Conseil d'administration</p>
+                        <NavigationMenuLink href="#equipe-direction" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Équipe de Direction</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Conseil et comité exécutif</p>
                         </NavigationMenuLink>
                       </div>
                       <div className="space-y-3">
                         <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Présence Mondiale</h4>
-                        <NavigationMenuLink href="#bureaux" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <NavigationMenuLink href="#bureaux-regionaux" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                           <div className="text-sm font-medium leading-none">Bureaux Régionaux</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">120+ pays</p>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#partenariats" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Partenariats Stratégiques</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">ONU et UNESCO</p>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink href="#carrieres" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Carrières chez GCHEA</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Rejoignez notre équipe</p>
-                        </NavigationMenuLink>
-                      </div>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Contact</h4>
                         <NavigationMenuLink href="#contact" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                           <div className="text-sm font-medium leading-none">Informations de Contact</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Nous contacter</p>
@@ -83,56 +72,50 @@ const Header = () => {
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-gchea-dark-purple hover:text-gchea-bright-gold">
-                    Accréditation
+                    Services d'Accréditation
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[700px] lg:w-[900px] lg:grid-cols-4">
+                    <div className="grid gap-3 p-6 w-[700px] lg:w-[800px] lg:grid-cols-3">
                       <div className="space-y-3">
-                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Institutionnelle</h4>
-                        <NavigationMenuLink href="#criteres" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Critères d'Éligibilité</div>
+                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Accréditation Institutionnelle</h4>
+                        <NavigationMenuLink href="#processus-normes" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Processus et Normes</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#processus" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Processus de Candidature</div>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink href="#normes" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Normes d'Accréditation</div>
-                        </NavigationMenuLink>
-                      </div>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Programmatique</h4>
-                        <NavigationMenuLink href="#business" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Commerce et Gestion</div>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink href="#ingenierie" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Ingénierie et Technologie</div>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink href="#medecine" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Médecine et Sciences de la Santé</div>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink href="#informatique" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Informatique et TI</div>
-                        </NavigationMenuLink>
-                      </div>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Spécialisées</h4>
-                        <NavigationMenuLink href="#distance" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Éducation à Distance</div>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink href="#professionnel" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Formation Professionnelle</div>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink href="#international" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Accréditation Internationale</div>
-                        </NavigationMenuLink>
-                      </div>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Statuts</h4>
                         <NavigationMenuLink href="#institutions-accreditees" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                           <div className="text-sm font-medium leading-none">Institutions Accréditées</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#frais" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Frais et Financement</div>
+                        <NavigationMenuLink href="#mises-a-jour-statut" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Mises à Jour de Statut</div>
+                        </NavigationMenuLink>
+                      </div>
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Accréditation de Programmes</h4>
+                        <NavigationMenuLink href="#commerce-gestion" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Commerce et Gestion</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#ingenierie-technologie" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Ingénierie et Technologie</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#sciences-sante" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Sciences de la Santé</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#informatique-ti" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Informatique et TI</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#autres-disciplines" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Autres Disciplines</div>
+                        </NavigationMenuLink>
+                      </div>
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Ressources</h4>
+                        <NavigationMenuLink href="#guides-modeles" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Guides et Modèles</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#structure-frais" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Structure des Frais</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#faq" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">FAQ</div>
                         </NavigationMenuLink>
                       </div>
                     </div>
@@ -141,29 +124,24 @@ const Header = () => {
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-gchea-dark-purple hover:text-gchea-bright-gold">
-                    Recherche et Innovation
+                    Normes de Qualité
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid gap-3 p-6 w-[500px] lg:w-[600px] lg:grid-cols-2">
                       <div className="space-y-3">
-                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Technologies Émergentes</h4>
-                        <NavigationMenuLink href="#ia-apprentissage" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Apprentissage Personnalisé par IA</div>
+                        <NavigationMenuLink href="#cadres-educatifs" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Cadres Éducatifs Mondiaux</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#blockchain" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Vérification par Blockchain</div>
-                        </NavigationMenuLink>
-                        <NavigationMenuLink href="#realite-virtuelle" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Salles de Classe VR</div>
+                        <NavigationMenuLink href="#outils-benchmarking" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Outils de Benchmarking</div>
                         </NavigationMenuLink>
                       </div>
                       <div className="space-y-3">
-                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Collaborations</h4>
-                        <NavigationMenuLink href="#solutions-durables" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Solutions Éducatives Durables</div>
+                        <NavigationMenuLink href="#exigences-conformite" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Exigences de Conformité</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#industrie-academie" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Collaborations Industrie-Académie</div>
+                        <NavigationMenuLink href="#amelioration-continue" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Amélioration Continue</div>
                         </NavigationMenuLink>
                       </div>
                     </div>
@@ -172,32 +150,58 @@ const Header = () => {
 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-gchea-dark-purple hover:text-gchea-bright-gold">
-                    Initiatives Mondiales
+                    Recherche et Développement
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid gap-3 p-6 w-[500px] lg:w-[600px] lg:grid-cols-2">
                       <div className="space-y-3">
-                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Pays en Développement</h4>
-                        <NavigationMenuLink href="#construction-universites" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Construction d'Universités</div>
+                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Technologies Éducatives</h4>
+                        <NavigationMenuLink href="#ia-education" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">IA dans l'Éducation</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#bourses" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Bourses et Financement</div>
+                        <NavigationMenuLink href="#applications-blockchain" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Applications Blockchain</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#egalite-genres" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Promotion de l'Égalité des Sexes</div>
+                        <NavigationMenuLink href="#apprentissage-vr-ar" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Apprentissage VR/AR</div>
                         </NavigationMenuLink>
                       </div>
                       <div className="space-y-3">
-                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Secteurs Émergents</h4>
-                        <NavigationMenuLink href="#sante-medical" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Santé et Médecine</div>
+                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Partenariats</h4>
+                        <NavigationMenuLink href="#durabilite-education" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Durabilité dans l'Éducation</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#stem-ia" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">STEM et IA</div>
+                        <NavigationMenuLink href="#subventions-recherche" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Subventions de Recherche</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#technologie-verte" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Technologie Verte</div>
+                        <NavigationMenuLink href="#laboratoires-innovation" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Laboratoires d'Innovation</div>
+                        </NavigationMenuLink>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-gchea-dark-purple hover:text-gchea-bright-gold">
+                    Partenariats Mondiaux
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 w-[500px] lg:w-[600px] lg:grid-cols-2">
+                      <div className="space-y-3">
+                        <NavigationMenuLink href="#collaborations-gouvernementales" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Collaborations Gouvernementales</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#programmes-onu-unesco" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Programmes ONU et UNESCO</div>
+                        </NavigationMenuLink>
+                      </div>
+                      <div className="space-y-3">
+                        <NavigationMenuLink href="#reseaux-academiques" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Réseaux Académiques</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#alliances-entreprises" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Alliances d'Entreprises</div>
                         </NavigationMenuLink>
                       </div>
                     </div>
@@ -209,21 +213,29 @@ const Header = () => {
                     Ressources
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px] lg:w-[500px] lg:grid-cols-2">
+                    <div className="grid gap-3 p-6 w-[500px] lg:w-[600px] lg:grid-cols-2">
                       <div className="space-y-3">
-                        <NavigationMenuLink href="#publications" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Publications et Rapports</div>
+                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Publications</h4>
+                        <NavigationMenuLink href="#articles-recherche" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Articles de Recherche</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#formations" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Formations et Ateliers</div>
+                        <NavigationMenuLink href="#rapports-annuels" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Rapports Annuels</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#notes-politiques" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Notes de Politique</div>
                         </NavigationMenuLink>
                       </div>
                       <div className="space-y-3">
-                        <NavigationMenuLink href="#outils" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">Outils et Modèles</div>
+                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Outils</h4>
+                        <NavigationMenuLink href="#auto-evaluation" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Auto-évaluation</div>
                         </NavigationMenuLink>
-                        <NavigationMenuLink href="#faq" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">FAQ et Centre d'Aide</div>
+                        <NavigationMenuLink href="#preparation-accreditation" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Préparation Accréditation</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#donnees-statistiques" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Données et Statistiques</div>
                         </NavigationMenuLink>
                       </div>
                     </div>
@@ -231,9 +243,34 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="#actualites" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium transition-colors duration-200 relative group px-4 py-2">
-                    Actualités et Événements
-                  </NavigationMenuLink>
+                  <NavigationMenuTrigger className="text-gchea-dark-purple hover:text-gchea-bright-gold">
+                    Actualités et Engagement
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-6 w-[500px] lg:w-[600px] lg:grid-cols-2">
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Dernières Actualités</h4>
+                        <NavigationMenuLink href="#communiques-presse" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Communiqués de Presse</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#couverture-medias" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Couverture Médiatique</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#calendrier-evenements" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Calendrier d'Événements</div>
+                        </NavigationMenuLink>
+                      </div>
+                      <div className="space-y-3">
+                        <h4 className="text-sm font-medium leading-none text-gchea-dark-purple">Opportunités</h4>
+                        <NavigationMenuLink href="#offres-emploi" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Offres d'Emploi</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#stages" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Stages</div>
+                        </NavigationMenuLink>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
@@ -278,20 +315,23 @@ const Header = () => {
               <a href="#a-propos" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
                 À Propos
               </a>
-              <a href="#accreditation" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-                Accréditation
+              <a href="#services-accreditation" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+                Services d'Accréditation
               </a>
-              <a href="#recherche" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-                Recherche et Innovation
+              <a href="#normes-qualite" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+                Normes de Qualité
               </a>
-              <a href="#initiatives" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-                Initiatives Mondiales
+              <a href="#recherche-developpement" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+                Recherche et Développement
+              </a>
+              <a href="#partenariats-mondiaux" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+                Partenariats Mondiaux
               </a>
               <a href="#ressources" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
                 Ressources
               </a>
-              <a href="#actualites" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
-                Actualités et Événements
+              <a href="#actualites-engagement" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
+                Actualités et Engagement
               </a>
               <a href="#verification" className="text-gchea-dark-purple hover:text-gchea-bright-gold font-medium py-2" onClick={() => setIsMenuOpen(false)}>
                 Vérification
