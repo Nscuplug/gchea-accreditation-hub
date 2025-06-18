@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -21,16 +20,19 @@ export default {
 		extend: {
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
+				'formal': ['Georgia', 'Times New Roman', 'serif'],
 			},
 			colors: {
-				// GCHEA brand colors inspired by Washington.edu
+				// Government/UN inspired color palette
 				'gchea': {
-					'purple': '#4B2E83', // Washington purple
-					'gold': '#B7A57A',   // Washington gold
-					'dark-purple': '#2E1A4B',
-					'light-purple': '#6B46C1',
-					'bright-gold': '#F59E0B',
-					'cream': '#FAF7F2',
+					'navy': '#003366',          // Deep navy - primary authority color
+					'blue': '#0052cc',          // UN blue
+					'light-blue': '#4a90e2',    // Accessible blue
+					'steel': '#708090',         // Steel blue for accents
+					'gold': '#c9a96e',          // Diplomatic gold
+					'silver': '#b8c5d1',        // Silver for secondary elements
+					'cream': '#faf9f6',         // Off-white for backgrounds
+					'charcoal': '#2c3e50',      // Dark text
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -117,13 +119,24 @@ export default {
 						transform: 'translateX(0)',
 						opacity: '1'
 					}
+				},
+				'authority-pulse': {
+					'0%, 100%': { 
+						opacity: '1',
+						transform: 'scale(1)'
+					},
+					'50%': { 
+						opacity: '0.8',
+						transform: 'scale(1.02)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out',
-				'slide-in-right': 'slide-in-right 0.8s ease-out'
+				'slide-in-right': 'slide-in-right 0.8s ease-out',
+				'authority-pulse': 'authority-pulse 2s ease-in-out infinite'
 			}
 		}
 	},
