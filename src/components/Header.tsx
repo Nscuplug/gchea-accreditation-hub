@@ -1,43 +1,134 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Shield, ChevronDown, Globe } from 'lucide-react';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
+import { Menu, X, Shield, ChevronDown } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const menuItems = [
+    {
+      title: 'À Propos',
+      id: 'about',
+      items: [
+        { title: 'Notre Mission et Vision', href: '#mission-vision' },
+        { title: 'Équipe de Direction', href: '#equipe-direction' },
+        { title: 'Bureaux Régionaux', href: '#bureaux-regionaux' }
+      ]
+    },
+    {
+      title: 'Services d\'Accréditation',
+      id: 'services',
+      items: [
+        { title: 'Processus et Normes', href: '#processus-normes' },
+        { title: 'Institutions Accréditées', href: '#institutions-accreditees' },
+        { title: 'Commerce et Gestion', href: '#commerce-gestion' },
+        { title: 'Ingénierie et Technologie', href: '#ingenierie-technologie' }
+      ]
+    },
+    {
+      title: 'Normes de Qualité',
+      id: 'quality',
+      items: [
+        { title: 'Cadres Éducatifs Mondiaux', href: '#cadres-educatifs' },
+        { title: 'Outils de Benchmarking', href: '#outils-benchmarking' }
+      ]
+    },
+    {
+      title: 'Recherche et Développement',
+      id: 'research',
+      items: [
+        { title: 'IA dans l\'Éducation', href: '#ia-education' },
+        { title: 'Subventions de Recherche', href: '#subventions-recherche' }
+      ]
+    },
+    {
+      title: 'Partenariats Mondiaux',
+      id: 'partnerships',
+      items: [
+        { title: 'Collaborations Gouvernementales', href: '#collaborations-gouvernementales' },
+        { title: 'Programmes ONU et UNESCO', href: '#programmes-onu-unesco' }
+      ]
+    },
+    {
+      title: 'Ressources',
+      id: 'resources',
+      items: [
+        { title: 'Articles de Recherche', href: '#articles-recherche' },
+        { title: 'Auto-évaluation', href: '#auto-evaluation' }
+      ]
+    },
+    {
+      title: 'Actualités',
+      id: 'news',
+      items: [
+        { title: 'Communiqués de Presse', href: '#communiques-presse' },
+        { title: 'Offres d\'Emploi', href: '#offres-emploi' }
+      ]
+    }
+  ];
 
   return (
-    <header className="bg-white/95 backdrop-blur-lg shadow-xl sticky top-0 z-50 border-b border-gchea-navy/20">
+    <header className="bg-white/95 backdrop-blur-lg shadow-xl sticky top-0 z-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top row: Logo and Verification Button */}
-        <div className="flex justify-between items-center py-4 border-b border-gchea-navy/10">
+        {/* Main header row */}
+        <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-gchea-navy via-gchea-blue to-gchea-light-blue rounded-xl flex items-center justify-center shadow-lg">
-                <Globe className="w-6 h-6 text-white" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-gchea-gold rounded-full flex items-center justify-center">
-                <Shield className="w-2 h-2 text-gchea-navy" />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <h1 className="text-xl font-bold text-gchea-navy font-formal tracking-tight">GCHEA</h1>
-              <p className="text-xs text-gchea-steel font-medium">Conseil Mondial pour l'Accréditation de l'Enseignement Supérieur</p>
-            </div>
+          <div className="flex items-center">
+            <img 
+              src="/lovable-uploads/55fc5fad-8c61-43d4-b5c8-b98d179abb8d.png" 
+              alt="GCHEA Logo" 
+              className="h-12 w-auto"
+            />
           </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            {menuItems.map((item) => (
+              <div 
+                key={item.id}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(item.id)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button className="flex items-center space-x-1 text-slate-700 hover:text-blue-600 font-semibold py-2 px-3 rounded-lg hover:bg-slate-50 transition-all duration-200">
+                  <span>{item.title}</span>
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+                
+                {/* Dropdown Menu */}
+                {activeDropdown === item.id && (
+                  <div className="absolute top-full left-0 mt-2 w-80 bg-white shadow-2xl rounded-xl border border-slate-100 py-4 z-50">
+                    {item.items.map((subItem, index) => (
+                      <a
+                        key={index}
+                        href={subItem.href}
+                        className="block px-6 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors"
+                      >
+                        {subItem.title}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+            
+            <a 
+              href="#verification" 
+              className="text-slate-700 hover:text-blue-600 font-semibold py-2 px-3 rounded-lg hover:bg-slate-50 transition-all duration-200"
+            >
+              Vérification
+            </a>
+          </nav>
 
           {/* Verification Button */}
           <div className="flex items-center space-x-4">
-            <Button className="bg-gradient-to-r from-gchea-navy to-gchea-blue hover:from-gchea-blue hover:to-gchea-navy text-white font-semibold px-6 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <Button 
+              onClick={() => document.getElementById('verification')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-semibold px-6 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              <Shield className="w-4 h-4 mr-2" />
               Vérifier un Document
             </Button>
             
@@ -46,7 +137,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gchea-navy hover:bg-gchea-cream rounded-xl p-2"
+                className="text-slate-700 hover:bg-slate-100 rounded-xl p-2"
               >
                 {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </Button>
@@ -54,205 +145,32 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Navigation Menu Row */}
-        <div className="hidden lg:flex items-center justify-center py-4">
-          <NavigationMenu>
-            <NavigationMenuList className="space-x-1">
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-gchea-navy hover:text-gchea-blue font-semibold px-4 py-2 rounded-lg hover:bg-gchea-cream transition-all duration-200">
-                  À Propos
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-3 p-8 w-[500px] lg:w-[600px] lg:grid-cols-2 bg-white shadow-2xl rounded-xl border border-gchea-navy/10">
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Organisation</h4>
-                      <NavigationMenuLink href="#mission-vision" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold leading-none">Notre Mission et Vision</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-gchea-steel">Gouvernance mondiale de l'excellence éducative</p>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#equipe-direction" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold leading-none">Équipe de Direction</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-gchea-steel">Conseil et direction exécutive</p>
-                      </NavigationMenuLink>
-                    </div>
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Présence Mondiale</h4>
-                      <NavigationMenuLink href="#bureaux-regionaux" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold leading-none">Bureaux Régionaux</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-gchea-steel">120+ pays, 6 continents</p>
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-gchea-navy hover:text-gchea-blue font-semibold px-4 py-2 rounded-lg hover:bg-gchea-cream transition-all duration-200">
-                  Services d'Accréditation
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-4 p-8 w-[800px] lg:w-[900px] lg:grid-cols-3 bg-white shadow-2xl rounded-xl border border-gchea-navy/10">
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Accréditation Institutionnelle</h4>
-                      <NavigationMenuLink href="#processus-normes" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Processus et Normes</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#institutions-accreditees" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Institutions Accréditées</div>
-                      </NavigationMenuLink>
-                    </div>
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Accréditation de Programmes</h4>
-                      <NavigationMenuLink href="#commerce-gestion" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Commerce et Gestion</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#ingenierie-technologie" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Ingénierie et Technologie</div>
-                      </NavigationMenuLink>
-                    </div>
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Ressources</h4>
-                      <NavigationMenuLink href="#guides-modeles" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Guides et Modèles</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-gchea-navy hover:text-gchea-blue font-semibold px-4 py-2 rounded-lg hover:bg-gchea-cream transition-all duration-200">
-                  Normes de Qualité
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-4 p-8 w-[600px] bg-white shadow-2xl rounded-xl border border-gchea-navy/10">
-                    <NavigationMenuLink href="#cadres-educatifs" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                      <div className="text-base font-semibold">Cadres Éducatifs Mondiaux</div>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink href="#outils-benchmarking" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                      <div className="text-base font-semibold">Outils de Benchmarking</div>
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-gchea-navy hover:text-gchea-blue font-semibold px-4 py-2 rounded-lg hover:bg-gchea-cream transition-all duration-200">
-                  Recherche et Développement
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-4 p-8 w-[600px] lg:grid-cols-2 bg-white shadow-2xl rounded-xl border border-gchea-navy/10">
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Technologies Éducatives</h4>
-                      <NavigationMenuLink href="#ia-education" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">IA dans l'Éducation</div>
-                      </NavigationMenuLink>
-                    </div>
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Partenariats</h4>
-                      <NavigationMenuLink href="#subventions-recherche" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Subventions de Recherche</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-gchea-navy hover:text-gchea-blue font-semibold px-4 py-2 rounded-lg hover:bg-gchea-cream transition-all duration-200">
-                  Partenariats Mondiaux
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-4 p-8 w-[600px] lg:grid-cols-2 bg-white shadow-2xl rounded-xl border border-gchea-navy/10">
-                    <NavigationMenuLink href="#collaborations-gouvernementales" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                      <div className="text-base font-semibold">Collaborations Gouvernementales</div>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink href="#programmes-onu-unesco" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                      <div className="text-base font-semibold">Programmes ONU et UNESCO</div>
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-gchea-navy hover:text-gchea-blue font-semibold px-4 py-2 rounded-lg hover:bg-gchea-cream transition-all duration-200">
-                  Ressources
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-4 p-8 w-[600px] lg:grid-cols-2 bg-white shadow-2xl rounded-xl border border-gchea-navy/10">
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Publications</h4>
-                      <NavigationMenuLink href="#articles-recherche" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Articles de Recherche</div>
-                      </NavigationMenuLink>
-                    </div>
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Outils</h4>
-                      <NavigationMenuLink href="#auto-evaluation" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Auto-évaluation</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-gchea-navy hover:text-gchea-blue font-semibold px-4 py-2 rounded-lg hover:bg-gchea-cream transition-all duration-200">
-                  Actualités et Engagement
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-4 p-8 w-[600px] lg:grid-cols-2 bg-white shadow-2xl rounded-xl border border-gchea-navy/10">
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Dernières Actualités</h4>
-                      <NavigationMenuLink href="#communiques-presse" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Communiqués de Presse</div>
-                      </NavigationMenuLink>
-                    </div>
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-bold text-gchea-navy mb-4">Opportunités</h4>
-                      <NavigationMenuLink href="#offres-emploi" className="block select-none space-y-2 rounded-lg p-4 leading-none no-underline outline-none transition-all hover:bg-gchea-cream hover:text-gchea-navy focus:bg-gchea-cream focus:text-gchea-navy hover:shadow-md">
-                        <div className="text-base font-semibold">Offres d'Emploi</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <NavigationMenuLink href="#verification" className="text-gchea-navy hover:text-gchea-blue font-semibold px-4 py-2 rounded-lg hover:bg-gchea-cream transition-all duration-200">
-                  Vérification
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-gchea-silver/30 py-6 animate-fade-in bg-white/95 backdrop-blur-lg rounded-b-2xl shadow-xl">
-            <nav className="flex flex-col space-y-4">
-              <a href="#a-propos" className="text-gchea-navy hover:text-gchea-blue font-semibold py-3 px-4 rounded-lg hover:bg-gchea-cream transition-all" onClick={() => setIsMenuOpen(false)}>
-                À Propos
-              </a>
-              <a href="#services-accreditation" className="text-gchea-navy hover:text-gchea-blue font-semibold py-3 px-4 rounded-lg hover:bg-gchea-cream transition-all" onClick={() => setIsMenuOpen(false)}>
-                Services d'Accréditation
-              </a>
-              <a href="#normes-qualite" className="text-gchea-navy hover:text-gchea-blue font-semibold py-3 px-4 rounded-lg hover:bg-gchea-cream transition-all" onClick={() => setIsMenuOpen(false)}>
-                Normes de Qualité
-              </a>
-              <a href="#recherche-developpement" className="text-gchea-navy hover:text-gchea-blue font-semibold py-3 px-4 rounded-lg hover:bg-gchea-cream transition-all" onClick={() => setIsMenuOpen(false)}>
-                Recherche et Développement
-              </a>
-              <a href="#partenariats-mondiaux" className="text-gchea-navy hover:text-gchea-blue font-semibold py-3 px-4 rounded-lg hover:bg-gchea-cream transition-all" onClick={() => setIsMenuOpen(false)}>
-                Partenariats Mondiaux
-              </a>
-              <a href="#ressources" className="text-gchea-navy hover:text-gchea-blue font-semibold py-3 px-4 rounded-lg hover:bg-gchea-cream transition-all" onClick={() => setIsMenuOpen(false)}>
-                Ressources
-              </a>
-              <a href="#actualites-engagement" className="text-gchea-navy hover:text-gchea-blue font-semibold py-3 px-4 rounded-lg hover:bg-gchea-cream transition-all" onClick={() => setIsMenuOpen(false)}>
-                Actualités et Engagement
-              </a>
-              <a href="#verification" className="text-gchea-navy hover:text-gchea-blue font-semibold py-3 px-4 rounded-lg hover:bg-gchea-cream transition-all" onClick={() => setIsMenuOpen(false)}>
+          <div className="lg:hidden border-t border-slate-200 py-6 animate-fade-in bg-white/95 backdrop-blur-lg rounded-b-2xl shadow-xl">
+            <nav className="flex flex-col space-y-2">
+              {menuItems.map((item) => (
+                <div key={item.id} className="space-y-2">
+                  <div className="text-slate-800 font-semibold py-3 px-4 bg-slate-50 rounded-lg">
+                    {item.title}
+                  </div>
+                  {item.items.map((subItem, index) => (
+                    <a
+                      key={index}
+                      href={subItem.href}
+                      className="block text-slate-600 hover:text-blue-600 py-2 px-6 ml-4 rounded-lg hover:bg-slate-50 transition-all"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {subItem.title}
+                    </a>
+                  ))}
+                </div>
+              ))}
+              <a 
+                href="#verification" 
+                className="text-slate-700 hover:text-blue-600 font-semibold py-3 px-4 rounded-lg hover:bg-slate-50 transition-all" 
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Vérification
               </a>
             </nav>

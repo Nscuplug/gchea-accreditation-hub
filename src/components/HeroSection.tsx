@@ -6,12 +6,8 @@ import { Globe, Award, Users, Shield, Building, Landmark, Sparkles, Zap } from '
 const HeroSection = () => {
   return (
     <section id="accueil" className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-indigo-600/10"></div>
-      </div>
-      
-      {/* Animated Elements */}
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-black/20"></div>
       <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-48 h-48 bg-indigo-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
       
@@ -32,22 +28,32 @@ const HeroSection = () => {
               </div>
             </div>
             
-            {/* Main Title */}
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-black leading-tight tracking-tight">
-                <span className="block bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-transparent">
-                  Conseil Mondial
-                </span>
+            {/* Logo and Title */}
+            <div className="space-y-6">
+              <div className="flex items-center space-x-6">
+                <img 
+                  src="/lovable-uploads/b35afc73-3bc6-4cbf-8aa8-1e33f416eedc.png" 
+                  alt="GCHEA Emblem" 
+                  className="w-24 h-24 object-contain"
+                />
+                <div>
+                  <h1 className="text-4xl lg:text-6xl font-black leading-tight tracking-tight">
+                    <span className="block bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-transparent">
+                      GCHEA
+                    </span>
+                  </h1>
+                  <p className="text-lg text-amber-400 font-semibold">Global Commission for Higher Education Accreditations</p>
+                </div>
+              </div>
+              
+              <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
                 <span className="block bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
-                  pour l'Accréditation
+                  Conseil Mondial pour l'Accréditation
                 </span>
                 <span className="block bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-transparent">
-                  de l'Enseignement
+                  de l'Enseignement Supérieur
                 </span>
-                <span className="block bg-gradient-to-r from-white via-blue-100 to-indigo-200 bg-clip-text text-transparent">
-                  Supérieur
-                </span>
-              </h1>
+              </h2>
             </div>
             
             {/* Subtitle */}
@@ -63,7 +69,12 @@ const HeroSection = () => {
                 <Sparkles className="w-5 h-5 mr-2" />
                 Services Officiels
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-12 py-6 text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-12 py-6 text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+                onClick={() => document.getElementById('verification')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 <Shield className="w-5 h-5 mr-2" />
                 Vérifier une Accréditation
               </Button>
