@@ -56,9 +56,11 @@ const Footer = () => {
             {/* Logo & Description */}
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-4 mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-2xl">
-                  <Shield className="w-8 h-8 text-slate-900" />
-                </div>
+                <img 
+                  src="/lovable-uploads/55fc5fad-8c61-43d4-b5c8-b98d179abb8d.png" 
+                  alt="GCHEA Logo" 
+                  className="w-16 h-16 object-contain"
+                />
                 <div>
                   <h3 className="text-3xl font-black text-white">GCHEA</h3>
                   <p className="text-amber-400 text-sm font-bold">Genève, Suisse</p>

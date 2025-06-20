@@ -72,7 +72,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-bold px-12 py-6 text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+                className="border-2 border-amber-400 text-amber-400 bg-transparent hover:bg-amber-400 hover:text-slate-900 backdrop-blur-sm font-bold px-12 py-6 text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
                 onClick={() => document.getElementById('verification')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Shield className="w-5 h-5 mr-2" />
