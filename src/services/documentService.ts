@@ -1,7 +1,5 @@
 
-// Document verification service - uses localStorage for demo
-// In production, this would connect to a secure blockchain database
-
+// Enhanced Document verification service with expanded database
 export interface DocumentRecord {
   id: string;
   blockchainHash: string;
@@ -15,12 +13,14 @@ export interface DocumentRecord {
   certificateType: string;
   digitalSignature: string;
   timestamp: number;
+  htmlContent: string;
+  cssStyles: string;
+  institutionId: string;
 }
 
 class DocumentService {
   private readonly STORAGE_KEY = 'gchea_documents';
 
-  // Initialize with some demo data
   private initializeDatabase(): DocumentRecord[] {
     const demoDocuments: DocumentRecord[] = [
       {
@@ -35,7 +35,35 @@ class DocumentService {
         isValid: true,
         certificateType: 'Master\'s Degree',
         digitalSignature: 'sig_gchea_2024_ai_master_456789',
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        institutionId: 'UIT-2024',
+        htmlContent: `
+          <div class="certificate">
+            <h1>UNIVERSITÉ INTERNATIONALE DE TECHNOLOGIE</h1>
+            <h2>CERTIFICAT DE DIPLÔME</h2>
+            <p>Certifie que <strong>Marie Dubois</strong></p>
+            <p>a obtenu avec succès le diplôme de</p>
+            <h3>MASTER EN INTELLIGENCE ARTIFICIELLE</h3>
+            <p>Délivré le 15 juin 2023</p>
+            <div class="signatures">
+              <p>Directeur: Prof. Jean Martin</p>
+              <p>Code blockchain: bc1q9xv2a8cf4h5n7m3k8j6p2r9w4e1t7y5u3i0o6l</p>
+            </div>
+          </div>
+        `,
+        cssStyles: `
+          .certificate { 
+            border: 5px solid #1e40af; 
+            padding: 40px; 
+            text-align: center; 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            font-family: 'Times New Roman', serif;
+          }
+          .certificate h1 { color: #1e40af; font-size: 24px; margin-bottom: 20px; }
+          .certificate h2 { color: #374151; font-size: 20px; margin-bottom: 30px; }
+          .certificate h3 { color: #dc2626; font-size: 18px; margin: 20px 0; }
+          .signatures { margin-top: 40px; font-size: 14px; }
+        `
       },
       {
         id: '2',
@@ -49,7 +77,40 @@ class DocumentService {
         isValid: true,
         certificateType: 'MBA',
         digitalSignature: 'sig_gchea_2024_mba_global_123456',
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        institutionId: 'ESCI-2024',
+        htmlContent: `
+          <div class="mba-certificate">
+            <div class="header">
+              <h1>ÉCOLE SUPÉRIEURE DE COMMERCE INTERNATIONAL</h1>
+              <h2>MASTER OF BUSINESS ADMINISTRATION</h2>
+            </div>
+            <div class="content">
+              <p>This is to certify that</p>
+              <h3>PIERRE MARTIN</h3>
+              <p>has successfully completed the requirements for</p>
+              <h4>MBA EN MANAGEMENT GLOBAL</h4>
+              <p>Awarded on December 10, 2023</p>
+            </div>
+            <div class="footer">
+              <p>Blockchain Hash: bc1q2w3e4r5t6y7u8i9o0p1a2s3d4f5g6h7j8k9l0m</p>
+            </div>
+          </div>
+        `,
+        cssStyles: `
+          .mba-certificate { 
+            border: 3px solid #059669; 
+            padding: 50px; 
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+          }
+          .header h1 { color: #059669; font-size: 26px; text-align: center; }
+          .header h2 { color: #374151; font-size: 18px; text-align: center; margin-bottom: 40px; }
+          .content { text-align: center; margin: 40px 0; }
+          .content h3 { color: #dc2626; font-size: 28px; margin: 20px 0; }
+          .content h4 { color: #1f2937; font-size: 20px; margin: 20px 0; }
+          .footer { text-align: center; font-size: 12px; color: #6b7280; }
+        `
       },
       {
         id: '3',
@@ -63,7 +124,41 @@ class DocumentService {
         isValid: true,
         certificateType: 'PhD',
         digitalSignature: 'sig_gchea_2024_phd_cognitive_789012',
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        institutionId: 'IRA-2024',
+        htmlContent: `
+          <div class="phd-certificate">
+            <div class="seal">🎓</div>
+            <h1>INSTITUT DE RECHERCHE AVANCÉE</h1>
+            <h2>DIPLÔME DE DOCTORAT</h2>
+            <div class="recipient">
+              <p>Conféré à</p>
+              <h3>Sophie Laurent</h3>
+              <p>qui a satisfait à toutes les exigences pour le</p>
+              <h4>DOCTORAT EN SCIENCES COGNITIVES</h4>
+              <p>Soutenance: 20 mars 2024</p>
+            </div>
+            <div class="blockchain">
+              <p>Sécurisé par blockchain GCHEA</p>
+              <small>bc1q3r4t5y6u7i8o9p0l1k2j3h4g5f6d7s8a9z0x1c</small>
+            </div>
+          </div>
+        `,
+        cssStyles: `
+          .phd-certificate { 
+            border: 4px double #7c3aed; 
+            padding: 60px; 
+            background: #fefce8;
+            position: relative;
+          }
+          .seal { font-size: 60px; text-align: center; margin-bottom: 20px; }
+          .phd-certificate h1 { color: #7c3aed; font-size: 24px; text-align: center; }
+          .phd-certificate h2 { color: #374151; font-size: 18px; text-align: center; margin-bottom: 30px; }
+          .recipient { text-align: center; margin: 30px 0; }
+          .recipient h3 { color: #dc2626; font-size: 32px; margin: 15px 0; }
+          .recipient h4 { color: #1f2937; font-size: 20px; margin: 15px 0; }
+          .blockchain { text-align: center; margin-top: 40px; font-size: 12px; color: #6b7280; }
+        `
       }
     ];
 
@@ -80,7 +175,6 @@ class DocumentService {
   }
 
   async verifyDocument(verificationCode: string): Promise<DocumentRecord | null> {
-    // Simulate blockchain verification delay
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     const documents = this.getDocuments();
@@ -89,7 +183,6 @@ class DocumentService {
     );
 
     if (document) {
-      // Update last verification timestamp
       document.timestamp = Date.now();
       this.saveDocuments(documents);
       return document;
@@ -105,12 +198,24 @@ class DocumentService {
     return documents.find(doc => doc.blockchainHash === hash) || null;
   }
 
+  async addDocument(document: Omit<DocumentRecord, 'id' | 'timestamp'>): Promise<DocumentRecord> {
+    const documents = this.getDocuments();
+    const newDocument: DocumentRecord = {
+      ...document,
+      id: (documents.length + 1).toString(),
+      timestamp: Date.now()
+    };
+    
+    documents.push(newDocument);
+    this.saveDocuments(documents);
+    return newDocument;
+  }
+
   private saveDocuments(documents: DocumentRecord[]): void {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(documents));
   }
 
   async getAllDocuments(): Promise<DocumentRecord[]> {
-    // This would require special admin access in production
     return this.getDocuments();
   }
 

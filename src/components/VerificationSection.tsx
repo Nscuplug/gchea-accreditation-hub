@@ -1,11 +1,12 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Search, Shield, CheckCircle, AlertCircle, Globe, Calendar, Camera, QrCode, Lock } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Search, Shield, CheckCircle, AlertCircle, Globe, Calendar, Camera, QrCode, Lock, Building } from 'lucide-react';
 import QRScanner from './QRScanner';
+import AccreditationVerification from './AccreditationVerification';
 import { documentService, DocumentRecord } from '../services/documentService';
 
 const VerificationSection = () => {
@@ -40,7 +41,6 @@ const VerificationSection = () => {
     setVerificationCode(scannedCode);
     setShowScanner(false);
     
-    // Auto-verify after QR scan
     setIsVerifying(true);
     setError(null);
     
@@ -68,132 +68,159 @@ const VerificationSection = () => {
             Vérification Blockchain
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
-            Vérifiez l'Authenticité de 
-            <span className="text-blue-600"> Vos Documents</span>
+            Système de Vérification 
+            <span className="text-blue-600"> Intégré GCHEA</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-            Système de vérification sécurisé basé sur la blockchain pour valider instantanément 
-            l'authenticité des certificats et diplômes émis par les institutions accréditées GCHEA.
+            Vérifiez instantanément l'authenticité des documents académiques et l'accréditation 
+            des institutions grâce à notre système blockchain sécurisé.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Verification Form */}
-          <Card className="shadow-2xl border-0 overflow-hidden">
-            <div className="h-2 bg-gradient-to-r from-blue-600 to-indigo-700"></div>
-            <CardHeader className="bg-gradient-to-br from-white to-slate-50">
-              <CardTitle className="text-2xl text-slate-800 flex items-center">
-                <Lock className="w-6 h-6 mr-3 text-blue-600" />
-                Vérification Blockchain
-              </CardTitle>
-              <p className="text-slate-600">
-                Entrez le code de vérification ou scannez le QR code de votre document pour valider son authenticité.
-              </p>
-            </CardHeader>
-            <CardContent className="p-8">
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-800 mb-2">
-                    Code de Vérification Blockchain
-                  </label>
-                  <div className="flex space-x-3">
-                    <Input
-                      type="text"
-                      placeholder="Ex: GCHEA-2024-CERT-123456"
-                      value={verificationCode}
-                      onChange={(e) => setVerificationCode(e.target.value)}
-                      className="text-lg py-6 border-slate-300 focus:border-blue-600"
-                    />
-                    <Button
-                      onClick={() => setShowScanner(true)}
-                      variant="outline"
-                      className="px-4 py-6 border-slate-300 hover:bg-slate-50"
-                    >
-                      <QrCode className="w-5 h-5" />
-                    </Button>
-                  </div>
-                  <p className="text-sm text-slate-500 mt-2">
-                    Le code se trouve généralement en bas de votre certificat ou dans le QR code
-                  </p>
-                </div>
+          {/* Verification Tabs */}
+          <div className="space-y-8">
+            <Tabs defaultValue="documents" className="w-full">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="documents" className="flex items-center gap-2">
+                  <Lock className="w-4 h-4" />
+                  Documents
+                </TabsTrigger>
+                <TabsTrigger value="accreditation" className="flex items-center gap-2">
+                  <Building className="w-4 h-4" />
+                  Accréditations
+                </TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="documents">
+                <Card className="shadow-2xl border-0 overflow-hidden">
+                  <div className="h-2 bg-gradient-to-r from-blue-600 to-indigo-700"></div>
+                  <CardHeader className="bg-gradient-to-br from-white to-slate-50">
+                    <CardTitle className="text-2xl text-slate-800 flex items-center">
+                      <Lock className="w-6 h-6 mr-3 text-blue-600" />
+                      Vérification de Documents
+                    </CardTitle>
+                    <p className="text-slate-600">
+                      Entrez le code de vérification ou scannez le QR code de votre document.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="p-8">
+                    <div className="space-y-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-slate-800 mb-2">
+                          Code de Vérification Blockchain
+                        </label>
+                        <div className="flex space-x-3">
+                          <Input
+                            type="text"
+                            placeholder="Ex: GCHEA-2024-CERT-123456"
+                            value={verificationCode}
+                            onChange={(e) => setVerificationCode(e.target.value)}
+                            className="text-lg py-6 border-slate-300 focus:border-blue-600"
+                          />
+                          <Button
+                            onClick={() => setShowScanner(true)}
+                            variant="outline"
+                            className="px-4 py-6 border-slate-300 hover:bg-slate-50"
+                          >
+                            <QrCode className="w-5 h-5" />
+                          </Button>
+                        </div>
+                      </div>
 
-                <div className="flex space-x-3">
-                  <Button
-                    onClick={handleVerification}
-                    disabled={!verificationCode || isVerifying}
-                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-6 text-lg font-semibold"
-                  >
-                    {isVerifying ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-                        Vérification Blockchain...
-                      </>
-                    ) : (
-                      <>
-                        <Shield className="w-5 h-5 mr-3" />
-                        Vérifier Document
-                      </>
-                    )}
-                  </Button>
-                  
-                  <Button
-                    onClick={() => setShowScanner(true)}
-                    variant="outline"
-                    className="px-6 py-6 border-blue-600 text-blue-600 hover:bg-blue-50"
-                  >
-                    <Camera className="w-5 h-5 mr-2" />
-                    Scanner QR
-                  </Button>
-                </div>
+                      <div className="flex space-x-3">
+                        <Button
+                          onClick={handleVerification}
+                          disabled={!verificationCode || isVerifying}
+                          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-6 text-lg font-semibold"
+                        >
+                          {isVerifying ? (
+                            <>
+                              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+                              Vérification...
+                            </>
+                          ) : (
+                            <>
+                              <Shield className="w-5 h-5 mr-3" />
+                              Vérifier Document
+                            </>
+                          )}
+                        </Button>
+                        
+                        <Button
+                          onClick={() => setShowScanner(true)}
+                          variant="outline"
+                          className="px-6 py-6 border-blue-600 text-blue-600 hover:bg-blue-50"
+                        >
+                          <Camera className="w-5 h-5 mr-2" />
+                          Scanner QR
+                        </Button>
+                      </div>
 
-                {/* Error Message */}
-                {error && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                    <div className="flex items-center">
-                      <AlertCircle className="w-5 h-5 text-red-600 mr-2" />
-                      <p className="text-red-700 font-medium">{error}</p>
+                      {error && (
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                          <div className="flex items-center">
+                            <AlertCircle className="w-5 h-5 text-red-600 mr-2" />
+                            <p className="text-red-700 font-medium">{error}</p>
+                          </div>
+                        </div>
+                      )}
+
+                      {verificationResult && (
+                        <div className="mt-6 p-6 rounded-xl border-2 bg-green-50 border-green-200">
+                          <div className="flex items-center mb-4">
+                            <CheckCircle className="w-6 h-6 text-green-600 mr-3" />
+                            <h3 className="text-lg font-bold text-green-800">Document Authentifié</h3>
+                          </div>
+                          <div className="space-y-3 text-sm">
+                            <div className="flex justify-between">
+                              <span className="font-medium text-slate-700">Institution:</span>
+                              <span className="text-slate-900">{verificationResult.institutionName}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="font-medium text-slate-700">Étudiant:</span>
+                              <span className="text-slate-900">{verificationResult.studentName}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="font-medium text-slate-700">Diplôme:</span>
+                              <span className="text-slate-900">{verificationResult.degree}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="font-medium text-slate-700">Date d'obtention:</span>
+                              <span className="text-slate-900">{verificationResult.graduationDate}</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                )}
-
-                {/* Verification Result */}
+                  </CardContent>
+                </Card>
+                
+                {/* Display the certificate if verification is successful */}
                 {verificationResult && (
-                  <div className="mt-6 p-6 rounded-xl border-2 bg-green-50 border-green-200">
-                    <div className="flex items-center mb-4">
-                      <CheckCircle className="w-6 h-6 text-green-600 mr-3" />
-                      <h3 className="text-lg font-bold text-green-800">Document Authentifié par Blockchain</h3>
-                    </div>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex justify-between">
-                        <span className="font-medium text-slate-700">Hash Blockchain:</span>
-                        <span className="text-slate-900 font-mono text-xs">{verificationResult.blockchainHash}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="font-medium text-slate-700">Institution:</span>
-                        <span className="text-slate-900">{verificationResult.institutionName}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="font-medium text-slate-700">Étudiant:</span>
-                        <span className="text-slate-900">{verificationResult.studentName}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="font-medium text-slate-700">Diplôme:</span>
-                        <span className="text-slate-900">{verificationResult.degree}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="font-medium text-slate-700">Date d'obtention:</span>
-                        <span className="text-slate-900">{verificationResult.graduationDate}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="font-medium text-slate-700">Signature Numérique:</span>
-                        <span className="text-slate-900 font-mono text-xs">{verificationResult.digitalSignature}</span>
-                      </div>
-                    </div>
-                  </div>
+                  <Card className="shadow-lg border-0 mt-6">
+                    <CardHeader>
+                      <CardTitle className="flex items-center">
+                        <Calendar className="w-5 h-5 mr-2" />
+                        Certificat Vérifié
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div 
+                        dangerouslySetInnerHTML={{ __html: verificationResult.htmlContent }}
+                        style={{ all: 'initial' }}
+                      />
+                      <style dangerouslySetInnerHTML={{ __html: verificationResult.cssStyles }} />
+                    </CardContent>
+                  </Card>
                 )}
-              </div>
-            </CardContent>
-          </Card>
+              </TabsContent>
+              
+              <TabsContent value="accreditation">
+                <AccreditationVerification />
+              </TabsContent>
+            </Tabs>
+          </div>
 
           {/* Information Panel */}
           <div className="space-y-8">
