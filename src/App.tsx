@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,6 +7,10 @@ import Index from "./pages/Index";
 import Verification from "./pages/Verification";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import Team from "./pages/Team";
+import Offices from "./pages/Offices";
+import Institutions from "./pages/Institutions";
+import Frameworks from "./pages/Frameworks";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,13 +27,15 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           
-          {/* Placeholder pages for other routes */}
-          <Route path="/team" element={<About />} />
-          <Route path="/offices" element={<About />} />
-          <Route path="/institutions" element={<Services />} />
+          {/* Batch 1 - Now with proper content */}
+          <Route path="/team" element={<Team />} />
+          <Route path="/offices" element={<Offices />} />
+          <Route path="/institutions" element={<Institutions />} />
+          <Route path="/frameworks" element={<Frameworks />} />
+          
+          {/* Batch 2-5 - Still placeholder pages for now */}
           <Route path="/business" element={<Services />} />
           <Route path="/engineering" element={<Services />} />
-          <Route path="/frameworks" element={<Services />} />
           <Route path="/benchmarking" element={<Services />} />
           <Route path="/ai-education" element={<Services />} />
           <Route path="/grants" element={<Services />} />
