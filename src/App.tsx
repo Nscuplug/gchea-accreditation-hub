@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +12,17 @@ import Team from "./pages/Team";
 import Offices from "./pages/Offices";
 import Institutions from "./pages/Institutions";
 import Frameworks from "./pages/Frameworks";
+import Business from "./pages/Business";
+import Engineering from "./pages/Engineering";
+import Benchmarking from "./pages/Benchmarking";
+import AIEducation from "./pages/AIEducation";
+import Grants from "./pages/Grants";
+import Government from "./pages/Government";
+import UNUnesco from "./pages/UNUnesco";
+import ResearchPapers from "./pages/ResearchPapers";
+import SelfAssessment from "./pages/SelfAssessment";
+import Press from "./pages/Press";
+import Careers from "./pages/Careers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,24 +39,32 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           
-          {/* Batch 1 - Now with proper content */}
+          {/* Navigation Pages - All functional */}
           <Route path="/team" element={<Team />} />
           <Route path="/offices" element={<Offices />} />
           <Route path="/institutions" element={<Institutions />} />
           <Route path="/frameworks" element={<Frameworks />} />
           
-          {/* Batch 2-5 - Still placeholder pages for now */}
-          <Route path="/business" element={<Services />} />
-          <Route path="/engineering" element={<Services />} />
-          <Route path="/benchmarking" element={<Services />} />
-          <Route path="/ai-education" element={<Services />} />
-          <Route path="/grants" element={<Services />} />
-          <Route path="/government" element={<Services />} />
-          <Route path="/un-unesco" element={<Services />} />
-          <Route path="/research-papers" element={<Services />} />
-          <Route path="/self-assessment" element={<Services />} />
-          <Route path="/press" element={<Services />} />
-          <Route path="/careers" element={<Services />} />
+          {/* Services & Programs */}
+          <Route path="/business" element={<Business />} />
+          <Route path="/engineering" element={<Engineering />} />
+          <Route path="/benchmarking" element={<Benchmarking />} />
+          <Route path="/ai-education" element={<AIEducation />} />
+          
+          {/* Research & Development */}
+          <Route path="/grants" element={<Grants />} />
+          
+          {/* Global Partnerships */}
+          <Route path="/government" element={<Government />} />
+          <Route path="/un-unesco" element={<UNUnesco />} />
+          
+          {/* Resources */}
+          <Route path="/research-papers" element={<ResearchPapers />} />
+          <Route path="/self-assessment" element={<SelfAssessment />} />
+          
+          {/* News & Careers */}
+          <Route path="/press" element={<Press />} />
+          <Route path="/careers" element={<Careers />} />
           
           {/* Catch-all route for 404 */}
           <Route path="*" element={<NotFound />} />
