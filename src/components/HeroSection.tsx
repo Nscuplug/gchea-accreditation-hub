@@ -6,8 +6,18 @@ import { Globe, Award, Users, Shield, Building, Landmark, Sparkles, Zap } from '
 const HeroSection = () => {
   return (
     <section id="accueil" className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white overflow-hidden">
+      {/* Banner Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=1920&h=1080&fit=crop')",
+        }}
+      ></div>
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-blue-900/85 to-indigo-900/90"></div>
+      
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-black/20"></div>
       <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-48 h-48 bg-indigo-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
       

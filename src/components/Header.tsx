@@ -71,7 +71,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white/95 backdrop-blur-lg shadow-xl sticky top-0 z-50 border-b border-slate-200">
+    <header className="bg-white/80 backdrop-blur-xl shadow-xl sticky top-0 z-50 border-b border-white/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top row: Logo and Verification Button */}
         <div className="flex justify-between items-center py-4">
@@ -98,7 +98,7 @@ const Header = () => {
               <Button
                 variant="ghost"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-slate-700 hover:bg-slate-100 rounded-xl p-2"
+                className="text-slate-700 hover:bg-white/50 rounded-xl p-2"
               >
                 {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </Button>
@@ -106,55 +106,57 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Desktop Navigation - Second Row */}
-        <div className="hidden lg:block border-t border-slate-100 py-4">
-          <nav className="flex items-center justify-center space-x-8">
-            {menuItems.map((item) => (
-              <div 
-                key={item.id}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.id)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <button className="flex items-center space-x-1 text-slate-700 hover:text-blue-600 font-semibold py-2 px-3 rounded-lg hover:bg-slate-50 transition-all duration-200">
-                  <span>{item.title}</span>
-                  <ChevronDown className="w-4 h-4" />
-                </button>
-                
-                {/* Dropdown Menu */}
-                {activeDropdown === item.id && (
-                  <div className="absolute top-full left-0 mt-2 w-80 bg-white shadow-2xl rounded-xl border border-slate-100 py-4 z-50">
-                    {item.items.map((subItem, index) => (
-                      <Link
-                        key={index}
-                        to={subItem.href}
-                        className="block px-6 py-3 text-slate-600 hover:text-blue-600 hover:bg-slate-50 transition-colors"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        {subItem.title}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
+        {/* Desktop Navigation - Second Row with translucent background */}
+        <div className="hidden lg:block border-t border-white/30 py-4">
+          <div className="bg-white/30 backdrop-blur-lg rounded-2xl px-6 py-3 shadow-lg">
+            <nav className="flex items-center justify-center space-x-8">
+              {menuItems.map((item) => (
+                <div 
+                  key={item.id}
+                  className="relative"
+                  onMouseEnter={() => setActiveDropdown(item.id)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <button className="flex items-center space-x-1 text-slate-700 hover:text-blue-600 font-semibold py-2 px-3 rounded-lg hover:bg-white/50 transition-all duration-200">
+                    <span>{item.title}</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </button>
+                  
+                  {/* Dropdown Menu */}
+                  {activeDropdown === item.id && (
+                    <div className="absolute top-full left-0 mt-2 w-80 bg-white/95 backdrop-blur-xl shadow-2xl rounded-xl border border-white/30 py-4 z-50">
+                      {item.items.map((subItem, index) => (
+                        <Link
+                          key={index}
+                          to={subItem.href}
+                          className="block px-6 py-3 text-slate-600 hover:text-blue-600 hover:bg-white/50 transition-colors"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          {subItem.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 py-6 animate-fade-in bg-white/95 backdrop-blur-lg rounded-b-2xl shadow-xl">
+          <div className="lg:hidden border-t border-white/30 py-6 animate-fade-in bg-white/90 backdrop-blur-xl rounded-b-2xl shadow-xl">
             <nav className="flex flex-col space-y-2">
               {menuItems.map((item) => (
                 <div key={item.id} className="space-y-2">
-                  <div className="text-slate-800 font-semibold py-3 px-4 bg-slate-50 rounded-lg">
+                  <div className="text-slate-800 font-semibold py-3 px-4 bg-white/50 rounded-lg">
                     {item.title}
                   </div>
                   {item.items.map((subItem, index) => (
                     <Link
                       key={index}
                       to={subItem.href}
-                      className="block text-slate-600 hover:text-blue-600 py-2 px-6 ml-4 rounded-lg hover:bg-slate-50 transition-all"
+                      className="block text-slate-600 hover:text-blue-600 py-2 px-6 ml-4 rounded-lg hover:bg-white/50 transition-all"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {subItem.title}
