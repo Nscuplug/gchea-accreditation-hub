@@ -1,7 +1,7 @@
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Building, Globe, Users, Award, Shield, HandShake } from 'lucide-react';
+import { Building, Globe, Users, Award, Shield, Handshake } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
